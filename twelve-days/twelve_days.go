@@ -5,7 +5,7 @@ import (
 )
 
 const (
-	start = "On the %s day of Christmas my true love gave to me"
+	start = "On the %s day of Christmas my true love gave to me: "
 )
 
 var (
@@ -23,7 +23,7 @@ var (
 		"eleventh",
 		"twelfth",
 	}
-	gifts = []string {
+	gifts = []string{
 		"a Partridge in a Pear Tree",
 		"two Turtle Doves",
 		"three French Hens",
@@ -40,21 +40,21 @@ var (
 )
 
 func Verse(input int) string {
-	s := ", "
+	s := ""
 	if input > 1 {
 		s += "and "
 	}
 	s = s + gifts[0]
-	for index := 1; index < input; index ++ {
-		s = ", " + gifts[index] + s
+	for index := 1; index < input; index++ {
+		s = gifts[index] + ", " + s
 	}
-	return fmt.Sprintf(start, days[input - 1]) + s + "."
+	return fmt.Sprintf(start, days[input-1]) + s + "."
 }
 
 func Song() string {
 	s := ""
 	for index := range days {
-		s += Verse(index + 1) + "\n"
+		s += Verse(index+1) + "\n"
 	}
 	return s
 }
