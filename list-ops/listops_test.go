@@ -44,7 +44,7 @@ var foldTestCases = []struct {
 		list:     []int{},
 	},
 	{
-		name:     "direction dependent function applied to non-empty list",
+		name:     "direction independent function applied to non-empty list",
 		property: "foldr",
 		fn:       func(x, y int) int { return x + y },
 		initial:  5,
@@ -74,7 +74,9 @@ func TestFold(t *testing.T) {
 		} else {
 			t.Logf("PASS: %s: %s", tt.property, tt.name)
 		}
+
 	}
+
 }
 
 var filterTestCases = []struct {
@@ -109,6 +111,7 @@ func TestFilterMethod(t *testing.T) {
 		} else {
 			t.Logf("PASS: %s: %s", tt.property, tt.name)
 		}
+
 	}
 }
 
@@ -207,6 +210,7 @@ func TestReverseMethod(t *testing.T) {
 		} else {
 			t.Logf("PASS: %s: %s", tt.property, tt.name)
 		}
+
 	}
 }
 
@@ -248,6 +252,7 @@ func TestAppendMethod(t *testing.T) {
 		} else {
 			t.Logf("PASS: %s: %s", tt.property, tt.name)
 		}
+
 	}
 }
 
